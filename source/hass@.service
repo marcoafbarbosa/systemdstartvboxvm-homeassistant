@@ -1,0 +1,14 @@
+[Unit]
+Description=Home Assistant
+After=network.target virtualbox.service
+Before=runlevel2.target shutdown.target
+
+[Service]
+User=marco
+Group=vboxusers
+Type=simple
+ExecStart=/usr/lib/virtualbox/VBoxHeadless --comment hass --startvm %i --vrde config
+ExecStop=/usr/bin/VBoxManage controlvm %i acpipowerbutton
+
+[Install]
+WantedBy=multi-user.target

@@ -1,10 +1,10 @@
 [Unit]
 Description=VirtualBox VM %I
-After=network.target vboxdrv.service
+After=network.target virtualbox.service
 Before=runlevel2.target shutdown.target
 
 [Service]
-User=pragmalin
+User=marco
 Group=vboxusers
 Type=forking
 Restart=no
